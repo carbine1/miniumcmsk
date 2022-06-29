@@ -1,0 +1,9 @@
+{
+  "pkg_list": [
+    {"pkg":"minitest",
+      "case_list": [
+        "test_*"
+      ]
+    }
+  ]
+}
