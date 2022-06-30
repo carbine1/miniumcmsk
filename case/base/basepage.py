@@ -15,9 +15,9 @@ class BasePage:
         self.mini.app.switch_tab(route)
 
     @property
-    def current_title(self) -> str:
+    def current_title(self, elepath) -> str:
         """获取当前页面 head title, 具体项目具体分析,以下代码仅用于演示"""
-        return self.mini.page.get_element("XXXXXX").inner_text
+        return self.mini.page.get_element(elepath).inner_text
 
     def current_path(self) -> str:
         """获取当前页面route"""

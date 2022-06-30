@@ -1,6 +1,6 @@
 {
   "pkg_list": [
-    {"pkg":"minitest",
+    {"pkg":"test",
       "case_list": [
         "test_*"
       ]
