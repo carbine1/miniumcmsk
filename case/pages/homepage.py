@@ -1,8 +1,10 @@
 from case.base.basepage import BasePage
 from case.base import route
-
+from main import minium_init
 
 class HomePage(BasePage):
+    # def __init__(self, mini):
+    #     self.mini = mini
     """小程序首页公共方法"""
 
     locators = {
@@ -56,4 +58,4 @@ class HomePage(BasePage):
     点击打开城市选择页面
     """
     def get_city_select_element(self):
-        self.mini.page.get_element(str(self.city_select_button)).click()
+        self.mini.page.get_element(str(self.city_select_button[0])).click()

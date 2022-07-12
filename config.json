@@ -8,5 +8,6 @@
   "assert_capture": false,
   "request_timeout": 60,
   "remote_connect_timeout": 300,
-  "auto_relaunch": true
+  "auto_relaunch": true,
+  "outputs": "outputs"
 }

@@ -1,6 +1,11 @@
 {
   "pkg_list": [
-    {"pkg":"test",
+    {"pkg":"test.hometest",
+      "case_list": [
+        "test_*"
+      ]
+    },
+    {"pkg":"test.mallpagetest",
       "case_list": [
         "test_*"
       ]

@@ -1,9 +1,9 @@
 from case.base import loader
 from case.base.basecase import BaseCase
 from case.pages.homepage import HomePage
+import minium
 
-
-class HomePageTest(BaseCase):
+class HomePageTest(minium.MiniTest):
     def __init__(self, methodName='runTest'):
         super(HomePageTest, self).__init__(methodName)
         self.homePage = HomePage(self)
@@ -23,4 +23,9 @@ class HomePageTest(BaseCase):
 
 
 if __name__ == '__main__':
+    mini= minium.Minium({
+            "project_path": r"C:\Users\carbine_san\Documents\630zsh\dist",
+            "dev_tool_path": r"C:\Program Files (x86)\Tencent\微信web开发者工具\cli.bat"
+        })
+    mini.connect_dev_tool()
     loader.run(module="hometest", config="../config.json", generate_report=True)

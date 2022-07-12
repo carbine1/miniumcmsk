@@ -1,3 +1,7 @@
+from main import minium_init
+mini = minium_init()
+
+
 class BasePage:
     def __init__(self, mini):
         self.mini = mini
@@ -15,9 +19,9 @@ class BasePage:
         self.mini.app.switch_tab(route)
 
     @property
-    def current_title(self, elepath) -> str:
+    def current_title(self) -> str:
         """获取当前页面 head title, 具体项目具体分析,以下代码仅用于演示"""
-        return self.mini.page.get_element(elepath).inner_text
+        return self.mini.page.get_element("XXXXXX").inner_text
 
     def current_path(self) -> str:
         """获取当前页面route"""
