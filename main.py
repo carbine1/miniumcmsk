@@ -28,6 +28,7 @@ def minium_init():
   "outputs": "outputs"
 })
     mini.connect_dev_tool()
+    mini.app.go_home()
     return mini
 
 

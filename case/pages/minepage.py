@@ -17,20 +17,28 @@ class MinePage(BasePage):
         校验页面路径
         """
 
-    def check_minepage_path(self):
+    def check_mine_page_path(self):
         self.mini.assertEqual(self.current_path(), route.minepage_route)
 
     """
         校验页面的基本元素
     """
 
-    def check_housepage_base_element(self):
+    def check_mine_page_base_element(self):
         # 校验页面会员信息元素
         self.mini.assertTrue(self.mini.page.element_is_exists(MinePage.locators['MINE_AVATAR']))
         # 校验页面会员卡元素
         self.mini.assertTrue(self.mini.page.element_is_exists(MinePage.locators['MINE_MEMBERCARD']))
+        # 校验页面MINE_BENEFIT元素
+        self.mini.assertTrue(self.mini.page.element_is_exists(MinePage.locators['MINE_BENEFIT']))
+        # 校验页面MINE_HOME元素
+        self.mini.assertTrue(self.mini.page.element_is_exists(MinePage.locators['MINE_HOME']))
+        # 校验页面MINE_HOTLINE元素
+        self.mini.assertTrue(self.mini.page.element_is_exists(MinePage.locators['MINE_HOTLINE']))
+        # 校验页面MINE_ORDER元素
+        self.mini.assertTrue(self.mini.page.element_is_exists(MinePage.locators['MINE_ORDER']))
 
-    def click_myprofile_element(self):
+    def click_my_profile_element(self):
         self.mini.page.get_element(MinePage.locators['MINE_AVATAR']).click()
         # 检查跳转后页面路径
         self.mini.assertEqual(self.current_path(), route.myProfile_route)

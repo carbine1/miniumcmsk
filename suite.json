@@ -9,6 +9,11 @@
       "case_list": [
         "test_*"
       ]
+    },
+    {"pkg":"test.minepagetest",
+      "case_list": [
+        "test_*"
+      ]
     }
   ]
 }
