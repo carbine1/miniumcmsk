@@ -1,6 +1,5 @@
-from case.base.basepage import BasePage
 from case.base import route
-from main import minium_init
+from case.base.basepage import BasePage
 
 
 class MallPage(BasePage):
@@ -20,6 +19,3 @@ class MallPage(BasePage):
 
     def check_mallpage_path(self):
         self.mini.assertEqual(self.current_path(), route.mallpage_route)
-
-
-

@@ -21,4 +21,5 @@ hotActivitiespage_route = "/pages/home/hotActivities/index"
 ticketpage_route = "/pkgMine/pages/ticket/index"
 reportMaintenancepage_route = "/pkgMine/pages/ticket/reportMaintenance/index"
 myMaintenanceTicketspage_route = "/pkgMine/pages/ticket/myMaintenanceTickets/index"
-myProfile_route = "/pkgMine/pages/profile/index"
+myProfile_route = "/pkgMine/pages/profile/index",
+roommatepage_route = "/pkgMine/pages/myHouse/houseRoommate/index"
