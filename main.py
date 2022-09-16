@@ -14,8 +14,8 @@ def print_hi(name):
 
 
 def minium_init():
-    mini = minium.Minium({
-  "project_path": "C:\\Users\\carbine_san\\Documents\\630zsh\\dist",
+    mini = minium.Minium(conf={
+  "project_path": "C:\\Users\\carbine_san\\Documents\\aixingzou\\dist",
   "dev_tool_path": "C:\\Program Files (x86)\\Tencent\\微信web开发者工具\\cli.bat",
   "debug_mode": "debug",
   "test_port": 9420,
@@ -35,10 +35,10 @@ def minium_init():
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     print_hi('PyCharm')
-    # mini =minium_init()
-    # loader.main(suite_path="suite.json", config="config.json", generate_report=True)
+    mini =minium_init()
+    loader.main(suite_path="suite.json", config="config.json", generate_report=True)
     # run(r"cli auto --project C:\Users\carbine_san\Documents\630zsh\dist --auto-port 9420")
-    runconfig = "minitest -s suite.json -c config.json -g"
-    run(runconfig, shell=False)
+    # runconfig = "minitest -s suite.json -c config.json -g"
+    # run(runconfig, shell=False)
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

@@ -12,10 +12,10 @@ class MinePageTest(minium.MiniTest):
         self.minepage = MinePage(self)
 
     def test_01_check_minepage_path(self):
-        self.minepage.check_minepage_path()
+        self.minepage.check_mine_page_path()
 
     def test_02_minepage_element(self):
-        self.minepage.check_minepage_base_element()
+        self.minepage.check_mine_page_base_element()
 
 
 if __name__ == '__main__':

@@ -1,8 +1,10 @@
 from main import minium_init
+from minium.miniprogram.base_driver.element import BaseElement
+
 mini = minium_init()
 
 
-class BasePage:
+class BasePage(BaseElement):
     def __init__(self, mini):
         self.mini = mini
 
@@ -26,3 +28,15 @@ class BasePage:
     def current_path(self) -> str:
         """获取当前页面route"""
         return self.mini.page.path
+
+    def scroll_to_element(self, selector, duration=300):
+        """
+        滚动到指定位置,页面使用，非scroll-view组件使用
+        :param selector:  选择器
+        :param duration:  滚动时长
+        :return:
+        """
+        self.mini.app.call_wx_method("pageScrollTo", [{"selector": selector, "duration": duration}])
+
+    def call_function(self, func, args):
+        self.call_func(func, args)
