@@ -1,3 +1,5 @@
+import time
+
 from case.base.basepage import BasePage
 from case.base import route
 
@@ -18,6 +20,8 @@ class MinePage(BasePage):
         """
 
     def check_mine_page_path(self):
+        # self.mini.app.switch_tab(route.minepage_route)
+        self.mini.page.wait_for(MinePage.locators['MINE_HOTLINE'])
         self.mini.assertEqual(self.current_path(), route.minepage_route)
 
     """
@@ -25,6 +29,8 @@ class MinePage(BasePage):
     """
 
     def check_mine_page_base_element(self):
+        # self.mini.app.switch_tab(route.minepage_route)
+        self.mini.page.wait_for(MinePage.locators['MINE_HOTLINE'])
         # 校验页面会员信息元素
         self.mini.assertTrue(self.mini.page.element_is_exists(MinePage.locators['MINE_AVATAR']))
         # 校验页面会员卡元素
@@ -39,6 +45,13 @@ class MinePage(BasePage):
         self.mini.assertTrue(self.mini.page.element_is_exists(MinePage.locators['MINE_ORDER']))
 
     def click_my_profile_element(self):
+        # self.mini.app.switch_tab(route.minepage_route)
         self.mini.page.get_element(MinePage.locators['MINE_AVATAR']).click()
         # 检查跳转后页面路径
         self.mini.assertEqual(self.current_path(), route.myProfile_route)
+
+    def mine_page_scroll(self):
+        self.mini.page.wait_for(MinePage.locators['MINE_HOTLINE'])
+        # self.mini.app.call_wx_method("pageScrollTo", [{"scrollTop": 500, "duration": 300}])
+        self.scroll_to_element(".index-module__image___3jpbF", 2000)
+        time.sleep(20)

@@ -1,6 +1,6 @@
 import threading
 import time
-
+import datetime
 from case.base.basepage import BasePage
 from case.base import route
 from minium.framework.minitest import MiniTest
@@ -50,11 +50,11 @@ class HomePage(BasePage):
         # 校验页面消息
         self.mini.assertTrue(self.mini.page.element_is_exists(HomePage.locators['BASE_MESSAGE']))
         # 校验页面直播
-        self.mini.assertTrue(self.mini.page.element_is_exists(HomePage.locators['BASE_LIVE']))
+        # self.mini.assertTrue(self.mini.page.element_is_exists(HomePage.locators['BASE_LIVE']))
         # 校验页面热门活动
         self.mini.assertTrue(self.mini.page.element_is_exists(HomePage.locators['BASE_ACTIVITY']))
         # 校验页面热门话题
-        self.mini.assertTrue(self.mini.page.element_is_exists(HomePage.locators['BASE_HOTTOPIC']))
+        # self.mini.assertTrue(self.mini.page.element_is_exists(HomePage.locators['BASE_HOTTOPIC']))
         # 校验页面商城商品
         self.mini.assertTrue(self.mini.page.element_is_exists(HomePage.locators['BASE_MALLITEM']))
 
@@ -72,17 +72,19 @@ class HomePage(BasePage):
         self.mini.page.get_element(str(self.city_select_button[0])).click()
 
     def scroll_page(self):
-        el = self.mini.page.get_element("scroll-view")
+        el = self.mini.page.get_element("scroll-view.index-module__container___292Uk")
         # 等待目标元素渲染完成再下拉，否则概率出现下拉失效
         self.mini.page.wait_for(HomePage.locators['BASE_MALL'])
         # asa = threading.Semaphore()
-        # el.scroll_to(y=1000)
+        # scroll-view 下可使用以下方法滚动：el.scroll_to和el.call_func(func="scroll-view.scrollTo", args=[0, 1000, 1000, 1])，非scroll-view不起作用
+        el.scroll_to(y=1000)
         el.call_func(func="scroll-view.scrollTo", args=[0, 1000, 1000, 1])
         # page1 = self.mini.app.get_current_page()
         # self.mini.app.call_wx_method("pageScrollTo", [{"selector": HomePage.locators['BASE_MALL'], "duration": 1000}])
 
-        # self.scroll_to_element(HomePage.locators['BASE_MALL'], 2000)
-        # MiniTest.capture(self)
+        self.scroll_to_element(HomePage.locators['BASE_MALL'], 2000)
+        imagename = "homescrolled%s" % datetime.datetime.now().strftime("%H%M%S%f")
+        self.mini.capture(name=imagename)
         # time.sleep(20)
 
         # self.mini.page.wait_for()
@@ -117,7 +119,8 @@ class HomePage(BasePage):
             callback_args = args
 
         self.mini.app.hook_wx_method("showModal", before=before, after=after, callback=callback)
-        time.sleep(2)
+        # time.sleep(2)
+        self.mini.page.wait_for('view.index-module__name___oj2aW')
         self.mini.page.get_element('view.index-module__name___oj2aW', inner_text="招商央畔").click()
         time.sleep(2)
         self.mini.native.handle_action_sheet("允许")

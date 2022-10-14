@@ -20,6 +20,10 @@ class BaseCase(minium.MiniTest):
 
     def setUp(self):
         super(BaseCase, self).setUp()
+        # if pagetype == "NoTab":
+        #     self.app.navigate_to(url)
+        # else:
+        #     self.app.switch_tab(url)
 
     def tearDown(self):
         super(BaseCase, self).tearDown()

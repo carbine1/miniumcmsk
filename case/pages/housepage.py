@@ -12,6 +12,8 @@ class HousePage(BasePage):
     校验页面路径
     """
     def check_housepage_path(self):
+        self.mini.app.switch_tab(route.housepage_route)
+        self.mini.page.wait_for(HousePage.locators['HOUSE_PROJECTLIST'])
         self.mini.assertEqual(self.current_path(), route.housepage_route)
 
     """

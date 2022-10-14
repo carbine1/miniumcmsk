@@ -32,7 +32,7 @@ class BasePage(BaseElement):
     def scroll_to_element(self, selector, duration=300):
         """
         滚动到指定位置,页面使用，非scroll-view组件使用
-        :param selector:  选择器
+        :param selector:  选择器,注意，仅支持id和class，及两者组合，传tag不起作用
         :param duration:  滚动时长
         :return:
         """

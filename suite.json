@@ -1,6 +1,6 @@
 {
   "pkg_list": [
-    {"pkg":"test.hometest",
+    {"pkg":"test.*_test",
       "case_list": [
         "test_*"
       ]
